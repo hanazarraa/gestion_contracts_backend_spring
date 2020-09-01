@@ -3,7 +3,7 @@ package com.luv2code.ecommerce.controller;
 import com.luv2code.ecommerce.dao.PhoneNumberRepository;
 import com.luv2code.ecommerce.dao.SIMRepository;
 import com.luv2code.ecommerce.entity.Offer;
-import com.luv2code.ecommerce.entity.PhoneNmber;
+import com.luv2code.ecommerce.entity.PhoneNumber;
 import com.luv2code.ecommerce.entity.Sim;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -68,7 +68,7 @@ public class SIMController {
     }
     //delete sil
     @DeleteMapping("/{id}")
-    public ResponseEntity<PhoneNmber> deletesim(@PathVariable("id")long SIMId){
+    public ResponseEntity<PhoneNumber> deletesim(@PathVariable("id")long SIMId){
         Sim existing=this.simRepository.findById(SIMId).orElseThrow(()->new ResourceNotFoundException("SIM not found with id: "+SIMId));
         this.simRepository.delete(existing);
         return ResponseEntity.ok().build();

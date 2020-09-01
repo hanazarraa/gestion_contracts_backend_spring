@@ -5,6 +5,8 @@ import lombok.Data;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -38,7 +40,7 @@ public class Sim {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "sim")
     @JsonIgnore
     @JsonManagedReference("sim-contracts")
-    private List<ContractSIM> contractssims;
+    private List<ContractSIM> contractssims=new ArrayList<>();
 
     public List<ContractSIM> getContractssims() {
         return contractssims;

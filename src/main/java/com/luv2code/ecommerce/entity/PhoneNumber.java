@@ -5,13 +5,15 @@ import lombok.Data;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name="phone_numbers")
 @Data
-public class PhoneNmber {
+public class PhoneNumber {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "phone_id")
@@ -21,11 +23,13 @@ public class PhoneNmber {
    //3 possible status : A=assigned , F=free , D=de-assigned
    @Column(name = "status")
    private String status;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "contract")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "phoneNumber")
     @JsonIgnore
     @JsonManagedReference("phone-numbers-contract")
-    private List<ContractPhoneNumber> contractsphonenumbers;
-
+    private List<ContractPhoneNumber> contractsphonenumbers=new ArrayList<>();
+      
+    
+    
     public long getId() {
         return id;
     }

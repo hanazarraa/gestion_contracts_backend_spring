@@ -17,11 +17,11 @@ public class ContractPhoneNumber {
     @Column(name = "id")
     private long id;
     @ManyToOne
-    @JoinColumn(name = "phone_number_id",nullable = false)
+    @JoinColumn(name = "phone_number_id",referencedColumnName="phone_id")
     @JsonIgnore
     @ToString.Exclude
     @JsonBackReference("phone-numbers-contract")
-    private PhoneNmber phoneNmber;
+    private PhoneNumber phoneNumber;
     @ManyToOne
     @JoinColumn(name = "contract_id",nullable = false,referencedColumnName = "contract_id")
     @JsonIgnore
@@ -37,15 +37,17 @@ public class ContractPhoneNumber {
         this.id = id;
     }
 
-    public PhoneNmber getPhoneNmber() {
-        return phoneNmber;
-    }
+  
 
-    public void setPhoneNmber(PhoneNmber phoneNmber) {
-        this.phoneNmber = phoneNmber;
-    }
+    public PhoneNumber getPhoneNumber() {
+		return phoneNumber;
+	}
 
-    public Contract getContract() {
+	public void setPhoneNumber(PhoneNumber phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Contract getContract() {
         return contract;
     }
 

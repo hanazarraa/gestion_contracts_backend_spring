@@ -7,6 +7,9 @@ import lombok.ToString;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -40,6 +43,7 @@ public class Contract {
         return offer;
     }
     public Contract() {
+    	
     	
     }
 
@@ -83,10 +87,10 @@ public class Contract {
 
     @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "contract")
     @JsonManagedReference("contract-phone-numbers")
-    private List<ContractPhoneNumber> contractsphonenumbers;
+    private List<ContractPhoneNumber> contractsphonenumbers =new ArrayList<>();
     @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "contract")
     @JsonManagedReference("contract-sims")
-    private List<ContractSIM> contracts_sims;
+    private List<ContractSIM> contracts_sims=new ArrayList<>();;
 
 
     public List<ContractSIM> getContracts_sims() {

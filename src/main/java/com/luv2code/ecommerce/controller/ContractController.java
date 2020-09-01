@@ -5,6 +5,7 @@ import com.luv2code.ecommerce.dao.ContractRepository;
 
 import com.luv2code.ecommerce.dao.CustomerRepository;
 import com.luv2code.ecommerce.entity.Contract;
+import com.luv2code.ecommerce.entity.ContractPhoneNumber;
 import com.luv2code.ecommerce.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -13,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 import static org.hibernate.query.criteria.internal.ValueHandlerFactory.isNumeric;
@@ -90,11 +92,13 @@ public class ContractController {
     }
     //create contract
     @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
+   // @ResponseStatus(HttpStatus.CREATED)
 
     public Contract createContract( @RequestBody Contract contract){
-    	System.out.print(contract.getOffer());
     	contract.setStatus("A");
+    	
+    //	cph.setPhoneNmber(phoneNmber);
+    	//contract.getContractsphonenumbers().add(e)
         return this.contractRepository.save(contract);
     }
     //update contract
