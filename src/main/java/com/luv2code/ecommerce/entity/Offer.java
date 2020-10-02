@@ -55,19 +55,18 @@ public class Offer {
         this.offerDescription = offerDescription;
     }
 
-    public List<Contract> getContracts() {
+   /* public List<Contract> getContracts() {
         return contracts;
     }
 
     public void setContracts(List<Contract> contracts) {
         this.contracts = contracts;
-    }
+    }*/
 
     
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "offer")
+   /* @OneToMany(cascade = CascadeType.ALL,mappedBy = "offer")
 
-    @JsonManagedReference("offer-contracts")
-    private List<Contract> contracts;
+    private List<Contract> contracts;*/
     
   
 
