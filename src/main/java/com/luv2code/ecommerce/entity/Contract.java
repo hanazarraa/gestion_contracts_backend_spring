@@ -74,15 +74,10 @@ public class Contract {
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = true,referencedColumnName = "customer_id")
-    @JsonIgnore
-    @ToString.Exclude
-    @JsonBackReference("customer-contracts")
-    private Customer customer;
+    
+   private Customer customer;
     @ManyToOne
     @JoinColumn(name="offer_id",nullable=true,referencedColumnName="offer_id")
-    @JsonIgnore
-    @ToString.Exclude
-    @JsonBackReference("offer-contracts")
     private Offer offer;
 
     @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "contract")
